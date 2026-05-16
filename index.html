@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radhika & Karthik — 21 August 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=Nunito:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a96e;
+      --gold-light: #e8d5a3;
+      --gold-deep: #8a6a2e;
+      --rose: #e8b4b8;
+      --rose-deep: #c47c82;
+      --cream: #fdf8f0;
+      --deep: #1a1208;
+      --mauve: #6b4455;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--deep);
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ---- Starfield ---- */
+    .stars {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(201,169,110,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(232,180,184,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 50%, rgba(26,18,8,0) 0%, #0e0b06 100%);
+    }
+    .stars::before, .stars::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 55%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 35%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 15% 75%, rgba(201,169,110,0.7) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 60% 40%, rgba(232,180,184,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 90%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 75% 60%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 42% 65%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 25%, rgba(255,255,255,0.6) 0%, transparent 100%);
+      animation: twinkle 5s ease-in-out infinite alternate;
+    }
+    .stars::after {
+      background-image:
+        radial-gradient(1px 1px at 5% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 65% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 5%, rgba(255,255,255,0.5) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 45% 85%, rgba(201,169,110,0.6) 0%, transparent 100%),
+        radial-gradient(1px 1px at 92% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 18% 35%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 72% 20%, rgba(255,255,255,0.5) 0%, transparent 100%);
+      animation-delay: 2.5s;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    /* ---- Layout ---- */
+    .page {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 3rem 1.5rem 5rem;
+      gap: 0;
+    }
+
+    /* ---- Decorative top border ---- */
+    .top-border {
+      width: 100%; max-width: 680px;
+      text-align: center;
+      margin-bottom: 2rem;
+      animation: fadeDown 1.2s ease both;
+    }
+    .border-line {
+      display: flex; align-items: center; gap: 0.8rem;
+      justify-content: center;
+    }
+    .border-line hr { flex: 1; border: none; border-top: 1px solid var(--gold); opacity: 0.5; }
+    .border-diamond {
+      width: 8px; height: 8px;
+      border: 1px solid var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ---- Hero ---- */
+    .eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+      animation: fadeDown 1.2s ease 0.1s both;
+    }
+
+    .names {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2rem, 8vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      text-align: center;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 40%, var(--rose) 70%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeDown 1.2s ease 0.2s both;
+    }
+
+    .ampersand {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 300;
+      color: var(--rose);
+      -webkit-text-fill-color: var(--rose);
+      margin: 0.1em 0;
+    }
+
+    /* ---- Floral divider ---- */
+    .floral {
+      margin: 2rem 0 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+      animation: fadeDown 1.2s ease 0.3s both;
+    }
+    .floral-line { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
+    .floral-line.right { background: linear-gradient(to left, transparent, var(--gold)); }
+    .floral-icon {
+      font-size: 1.6rem;
+      filter: drop-shadow(0 0 8px rgba(201,169,110,0.5));
+    }
+
+    /* ---- Date ---- */
+    .wedding-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 4vw, 1.6rem);
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+      animation: fadeDown 1.2s ease 0.35s both;
+    }
+    .wedding-location {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(232,213,163,0.55);
+      margin-bottom: 3rem;
+      animation: fadeDown 1.2s ease 0.4s both;
+    }
+
+    /* ---- Countdown ---- */
+    .countdown-wrap {
+      width: 100%; max-width: 620px;
+      animation: fadeUp 1.4s ease 0.5s both;
+    }
+
+    .countdown-label {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 300;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose);
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .count-box {
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 16px;
+      padding: 1.4rem 0.5rem 1.2rem;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .count-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .count-box:hover { border-color: rgba(201,169,110,0.5); }
+
+    .count-number {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 700;
+      background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .count-unit {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(232,213,163,0.55);
+    }
+
+    /* Pulsing ring on seconds */
+    .count-box.seconds .count-number {
+      animation: pulse 1s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ---- Message ---- */
+    .message-card {
+      margin-top: 3.5rem;
+      width: 100%; max-width: 540px;
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 20px;
+      padding: 2.2rem 2rem;
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      animation: fadeUp 1.4s ease 0.7s both;
+      position: relative;
+    }
+    .message-card::before {
+      content: '❝';
+      position: absolute;
+      top: -0.7rem; left: 50%; transform: translateX(-50%);
+      font-size: 2rem;
+      color: var(--gold);
+      background: var(--deep);
+      padding: 0 0.5rem;
+      line-height: 1;
+    }
+    .message-text {
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1.8;
+    }
+    .message-attr {
+      margin-top: 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(232,180,184,0.5);
+    }
+
+    /* ---- Footer petals ---- */
+    .footer-floral {
+      margin-top: 3rem;
+      font-size: 1.2rem;
+      display: flex; gap: 0.8rem; align-items: center;
+      opacity: 0.4;
+      animation: fadeUp 1.4s ease 0.9s both;
+    }
+
+    /* ---- Celebration state ---- */
+    .celebration-msg {
+      display: none;
+      text-align: center;
+      animation: fadeDown 1s ease both;
+    }
+    .celebration-msg .big-text {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.6rem, 6vw, 2.8rem);
+      background: linear-gradient(135deg, var(--gold-light), var(--rose), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.8rem;
+    }
+    .celebration-msg .sub-text {
+      font-style: italic;
+      color: var(--gold-light);
+      font-size: 1.2rem;
+    }
+
+    /* ---- Animations ---- */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 420px) {
+      .countdown-grid { gap: 0.6rem; }
+      .count-box { padding: 1rem 0.3rem 0.9rem; border-radius: 12px; }
+      .message-card { padding: 1.8rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<main class="page">
+
+  <div class="top-border">
+    <div class="border-line">
+      <hr /><div class="border-diamond"></div>
+      <div class="border-diamond"></div>
+      <div class="border-diamond"></div><hr />
+    </div>
+  </div>
+
+  <p class="eyebrow">You are invited to celebrate</p>
+
+  <h1 class="names">
+    Radhika
+    <span class="ampersand">&amp;</span>
+    Karthik
+  </h1>
+
+  <div class="floral">
+    <div class="floral-line"></div>
+    <span class="floral-icon">🌸</span>
+    <span class="floral-icon">💍</span>
+    <span class="floral-icon">🌸</span>
+    <div class="floral-line right"></div>
+  </div>
+
+  <p class="wedding-date">Friday, 21st August 2026</p>
+  <p class="wedding-location">Wedding Celebration</p>
+
+  <!-- Countdown -->
+  <div class="countdown-wrap" id="countdownSection">
+    <p class="countdown-label">Days until they say &ldquo;I do&rdquo;</p>
+    <div class="countdown-grid">
+      <div class="count-box">
+        <span class="count-number" id="days">--</span>
+        <span class="count-unit">Days</span>
+      </div>
+      <div class="count-box">
+        <span class="count-number" id="hours">--</span>
+        <span class="count-unit">Hours</span>
+      </div>
+      <div class="count-box">
+        <span class="count-number" id="minutes">--</span>
+        <span class="count-unit">Minutes</span>
+      </div>
+      <div class="count-box seconds">
+        <span class="count-number" id="seconds">--</span>
+        <span class="count-unit">Seconds</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Celebration (shown after wedding date) -->
+  <div class="celebration-msg" id="celebrationMsg">
+    <p class="big-text">🎉 They're Married! 🎉</p>
+    <p class="sub-text">Wishing Radhika &amp; Karthik a lifetime of love &amp; joy</p>
+  </div>
+
+  <!-- Quote -->
+  <div class="message-card">
+    <p class="message-text">
+      "Two souls, one heartbeat — may your love story be written in stars,<br />
+      your laughter echo through every season, and your home always overflow with warmth."
+    </p>
+    <p class="message-attr">With love &amp; blessings</p>
+  </div>
+
+  <div class="footer-floral">
+    <span>🌿</span>
+    <span>🌺</span>
+    <span>✨</span>
+    <span>🌺</span>
+    <span>🌿</span>
+  </div>
+
+</main>
+
+<script>
+  const weddingDate = new Date('2026-08-21T00:00:00');
+
+  function update() {
+    const now = new Date();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      document.getElementById('countdownSection').style.display = 'none';
+      document.getElementById('celebrationMsg').style.display = 'block';
+      return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent    = String(d).padStart(2, '0');
+    document.getElementById('hours').textContent   = String(h).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+  }
+
+  update();
+  setInterval(update, 1000);
+</script>
+
+</body>
+</html>
